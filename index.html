@@ -68,6 +68,17 @@ h1 .q{color:var(--buoy)}
 .lede{font-size:16.5px;color:var(--muted);max-width:62ch;margin:0}
 h2{font-family:var(--f-display);font-size:21px;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
 .note{font-size:13px;color:var(--muted)}
+.intro .lede{margin-top:0}
+.intro h1{margin-top:8px}
+.tour{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.tour button{display:flex;flex-direction:column;align-items:stretch;gap:8px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;transition:border-color .15s,transform .15s}
+.tour button:hover{border-color:var(--sea);transform:translateY(-1px)}
+.tour button[aria-pressed="true"]{border-color:var(--sea);background:var(--sea-soft)}
+.tour-h{display:flex;align-items:center;gap:8px;color:var(--sea)}
+.tour-h svg{width:20px;height:20px;flex:none}
+.tour-h b{font-weight:700;font-size:15.5px;color:var(--ink)}
+.tour ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.tour button,.tour button:hover{transition:none;transform:none}}
 .try{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .try button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .15s, transform .15s}
 .try button:hover{border-color:var(--sea);transform:translateY(-1px)}
@@ -621,12 +632,40 @@ const U = {
  lang_label:['언어','Language','Idioma','语言'],
  eyebrow:['모두의 창업 · 서비스 MVP 데모','Modoo Startup program · Service MVP demo','Programa Modoo Startup · Demo del MVP','“全民创业”项目 · 服务MVP演示'],
  h1:['부산에서 <span class="q">“지금 뭐 하지?”</span>에 바로 답하는 외국인 여행 동반자','A travel companion that answers <span class="q">“What should I do now?”</span> in Busan','Un compañero de viaje que responde <span class="q">“¿Qué hago ahora?”</span> en Busan','在釜山随时回答<span class="q">“现在去哪儿？”</span>的外国游客旅行伙伴'],
- lede:['외국인 관광객의 현재 위치, 남은 시간, 날씨, 취향을 기준으로 동네 맛집·카페·체험을 추천하고 이동, 주문, 예약까지 한 화면에서 이어줍니다. 이 페이지의 앱 화면은 직접 눌러볼 수 있는 모바일 웹 MVP입니다.',
-  'Based on where a visitor is, how much time is left, the weather and their taste, it recommends neighbourhood restaurants, cafés and experiences, then carries them through getting there, ordering and booking on one screen. The app on this page is a working mobile-web MVP you can tap through.',
-  'Según dónde está el visitante, cuánto tiempo le queda, el clima y sus gustos, recomienda restaurantes, cafés y experiencias del barrio, y le acompaña en el trayecto, el pedido y la reserva en una sola pantalla. La app de esta página es un MVP web móvil que puedes probar.',
-  '根据游客当前的位置、剩余时间、天气和喜好，推荐本地餐厅、咖啡馆和体验活动，并在同一个界面里完成出行、点餐和预约。本页的应用界面是可以直接操作的移动网页MVP。'],
+ lede:['날씨와 부산 16개 구·군 동네 안내에서 시작해 지역·날짜·시간·날씨·예산·관심에 맞춘 여행 코스를 만들고, 지하철 길찾기와 번역·한국어 문장 카드로 이동과 주문까지 돕습니다. 오른쪽 앱 화면은 직접 눌러볼 수 있는 모바일 웹 MVP이며, 휴대폰 홈 화면에 앱처럼 추가할 수 있습니다.',
+  'It starts with the weather and a guide to Busan’s 16 districts, builds a trip plan around your area, date, time, weather, budget and interests, then helps you get there and order with subway directions, translation and Korean phrase cards. The app on the right is a working mobile-web MVP you can tap through, and it can be added to a phone’s home screen like an app.',
+  'Empieza con el clima y una guía de los 16 distritos de Busan, arma un plan según la zona, la fecha, la hora, el clima, el presupuesto y tus intereses, y te ayuda a llegar y a pedir con rutas de metro, traducción y tarjetas de frases en coreano. La app de la derecha es un MVP web móvil que puedes probar y se puede añadir a la pantalla de inicio del móvil como una app.',
+  '从天气和釜山16个区·郡的街区介绍开始，按地区、日期、时间、天气、预算和兴趣生成旅行路线，再用地铁导航、翻译和韩语短句卡帮助出行和点餐。右侧的应用界面是可以直接操作的移动网页MVP，也可以像App一样添加到手机主屏幕。'],
+ tour_h:['앱 화면 구성','What’s in the app','Qué hay en la app','应用里有什么'],
+ tour_s:['누르면 오른쪽 앱이 그 화면으로 바뀝니다.','Tap one to switch the app on the right to that screen.','Pulsa una para cambiar la app de la derecha a esa pantalla.','点击即可把右侧应用切换到该页面。'],
+ tour_now:[['언어 선택, 오늘 날씨, 16개 구·군 바로가기','나만의 여행 코스 만들기: 지역·날짜·시간·날씨·예산·관심','조건이 없으면 오늘의 추천 코스'],
+  ['Language, today’s weather, the 16 districts','Build your own plan: area, date, time, weather, budget, interests','Today’s suggested plan when nothing is set'],
+  ['Idioma, el clima de hoy y los 16 distritos','Arma tu plan: zona, fecha, hora, clima, presupuesto e intereses','El plan sugerido de hoy si no eliges nada'],
+  ['语言、今日天气、16个区·郡入口','定制旅行路线：地区、日期、时间、天气、预算、兴趣','未设条件时显示今日推荐路线']],
+ tour_explore:[['서면 약도 위 내 위치와 추천 장소 핀','맛집·카페·체험·명소를 가까운 순서로','장소 상세: 가격·운영시간·주문 문장·리뷰'],
+  ['Your location and pinned places on a Seomyeon map','Food, cafés, experiences and sights, nearest first','Place details: price, hours, how to order, reviews'],
+  ['Tu ubicación y lugares marcados en un mapa de Seomyeon','Comida, cafés, experiencias y lugares, de más cerca a más lejos','Detalle del lugar: precio, horario, cómo pedir y reseñas'],
+  ['西面简图上的我的位置和推荐地点','美食、咖啡馆、体验、景点，按距离排序','地点详情：价格、营业时间、点餐短句、评价']],
+ tour_transit:[['목적지 검색으로 가는 법 찾기','서면역에서 주요 명소 가는 지하철 노선','요금·교통카드·이용 팁과 교통 한국어'],
+  ['Search a destination to see how to get there','Subway routes from Seomyeon Station to the main sights','Fares, transit cards, tips and Korean for getting around'],
+  ['Busca un destino para ver cómo llegar','Rutas de metro desde la estación Seomyeon a los lugares principales','Tarifas, tarjetas de transporte, consejos y coreano para moverte'],
+  ['搜索目的地，查看怎么去','从西面站去主要景点的地铁路线','票价、交通卡、乘车提示和交通韩语']],
+ tour_tools:[['궁금한 걸 물으면 맞춤 코스 제안','입력·음성 번역과 한국어 문장 카드','주변 필수 정보와 관광통역 안내 1330'],
+  ['Ask anything and get a plan made for you','Typed and voice translation, Korean phrase cards','Essentials nearby and the 1330 travel hotline'],
+  ['Pregunta lo que quieras y recibe un plan a tu medida','Traducción escrita y por voz, tarjetas de frases en coreano','Servicios básicos cercanos y la línea turística 1330'],
+  ['提问即可获得定制路线','文字和语音翻译、韩语短句卡','周边必备信息和1330旅游热线']],
+ tour_trips:[['예약한 체험과 예약 코드','저장한 장소를 가까운 순서로','불편사항 신고'],
+  ['Your bookings and booking codes','Saved places, nearest first','Report a problem'],
+  ['Tus reservas y códigos de reserva','Lugares guardados, de más cerca a más lejos','Informar de un problema'],
+  ['已预约的体验和预约码','收藏的地点，按距离排序','反馈问题']],
+ tour_partner:[['방금 한 예약이 사업자 화면에 들어오는 모습','국적별 손님, 시간대별 예약','앱을 통해 온 손님 통계'],
+  ['A booking you just made arriving on the business side','Guests by nationality, bookings by time slot','Stats on customers who came through the app'],
+  ['La reserva que acabas de hacer llegando al negocio','Clientes por nacionalidad y reservas por horario','Estadísticas de clientes que llegaron por la app'],
+  ['刚完成的预约出现在商家页面','按国籍的客人、按时段的预约','通过应用到店的客人统计']],
  try_h:['직접 눌러보기','Try it yourself','Pruébalo','亲自试一试'],
- scn_rain:[['서면, 오후 3시, 비가 온다면','날씨와 남은 시간에 맞춰 실내 코스로 바뀝니다'],['Seomyeon, 3 PM, and it starts raining','The plan switches to indoor stops that fit the time left'],['Seomyeon, 15:00, y empieza a llover','El plan cambia a lugares cubiertos según el tiempo que queda'],['西面，下午3点，突然下雨','行程会根据天气和剩余时间换成室内路线']],
+ scn_rain:[['비 오는 날, 서면에서 3시간','오후 3~6시에 맞춘 실내 코스를 만들어 봅니다'],['A rainy afternoon, 3 hours in Seomyeon','Builds an indoor plan for 3–6 PM'],['Una tarde de lluvia, 3 horas en Seomyeon','Arma un plan bajo techo de 15:00 a 18:00'],['下雨天，在西面待3小时','生成下午3点到6点的室内路线']],
+ scn_area:[['해운대구 하루 코스','지역을 고르면 그 동네 명소와 먹거리로 코스를 짭니다'],['A day in Haeundae-gu','Pick a district and the plan uses its sights and food'],['Un día en Haeundae-gu','Elige un distrito y el plan usa sus lugares y su comida'],['海云台区一日游','选择地区，用当地景点和美食生成路线']],
+ scn_metro:[['서면역에서 해운대 가는 법','지하철 노선·정거장 수·걸리는 시간을 보여줍니다'],['Seomyeon Station to Haeundae','Shows the subway line, number of stops and travel time'],['De la estación Seomyeon a Haeundae','Muestra la línea de metro, las paradas y el tiempo de viaje'],['从西面站去海云台','显示地铁线路、站数和所需时间']],
  scn_order:[['식당에서 주문하기','한국어 주문 문장을 직원에게 크게 보여줍니다'],['Ordering at a restaurant','Shows the order in large Korean text for the staff'],['Pedir en un restaurante','Muestra el pedido en coreano, en grande, para el personal'],['在餐厅点餐','用大号韩文把点餐内容展示给店员']],
  scn_taxi:[['택시 기사에게 목적지 보여주기','목적지를 한국어 주소 카드로 띄웁니다'],['Showing a taxi driver where to go','Opens the destination as a Korean address card'],['Indicarle el destino al taxista','Abre el destino como tarjeta con la dirección en coreano'],['给出租车司机看目的地','以韩文地址卡显示目的地']],
  scn_book:[['체험 예약해보기','시간 선택부터 예약 확인까지 이어집니다'],['Booking an experience','From picking a time to the confirmation code'],['Reservar una experiencia','Desde elegir la hora hasta el código de confirmación'],['预约体验活动','从选择时间到获得预约码']],
@@ -639,15 +678,15 @@ const U = {
  arrow:['→ 하나의 상황(지금, 여기, 내 취향)에서 출발해 발견부터 방문·예약까지 한 흐름으로 연결합니다.','→ Start from one situation (now, here, my taste) and go from discovery to visit and booking in a single flow.','→ Partimos de una sola situación (ahora, aquí, mis gustos) y unimos el descubrimiento, la visita y la reserva en un solo flujo.','→ 从一个情境（此刻、此地、我的喜好）出发，把发现、到访和预约连成一条线。'],
  scope_h:['이번 MVP의 범위','What this MVP covers','Alcance de este MVP','本次MVP的范围'],
  in_h:['담은 것','Included','Incluido','包含'],
- in_list:[['현재 위치 주변 추천 장소','시간·날씨·예산·취향에 맞춘 코스','외국인이 이해하기 쉬운 로컬 맛집·카페·체험 정보','가격·운영시간·이동·주문·예약 방법 안내','택시·주문 문장 카드, 여행 중 필수 정보'],
-  ['Recommended places around your current location','Plans that fit time, weather, budget and taste','Local food, café and experience info written for visitors','Price, hours, directions, how to order and how to book','Taxi and phrase cards, plus travel essentials'],
-  ['Lugares recomendados alrededor de tu ubicación','Planes según tiempo, clima, presupuesto y gustos','Información local de comida, cafés y experiencias pensada para visitantes','Precio, horario, cómo llegar, cómo pedir y cómo reservar','Tarjetas para taxi y frases útiles, y servicios básicos de viaje'],
-  ['当前位置周边的推荐地点','按时间、天气、预算和喜好定制的行程','为外国游客整理的本地美食、咖啡馆和体验信息','价格、营业时间、交通、点餐和预约方式','出租车卡片、常用韩语卡片和旅行必备信息']],
+ in_list:[['오늘 날씨(기상청·Open-Meteo)와 부산 16개 구·군 동네 안내','지역·날짜·시간·날씨·예산·관심에 맞춘 여행 코스','서면 약도 위 추천 장소와 장소별 가격·운영시간·주문 방법','서면역 기준 지하철 길찾기, 요금·교통카드 안내','질문하기·번역(음성 입력)·한국어 문장 카드, 여행 중 필수 정보','장소 리뷰와 불편사항 신고, 휴대폰 홈 화면 앱(PWA), 4개 언어'],
+  ['Today’s weather (KMA / Open-Meteo) and a guide to Busan’s 16 districts','Trip plans fitted to area, date, time, weather, budget and interests','Places on a Seomyeon map with price, hours and how to order','Subway directions from Seomyeon Station, fares and transit cards','Ask, translate (with voice input), Korean phrase cards, travel essentials','Place reviews, problem reports, home-screen app (PWA), 4 languages'],
+  ['El clima de hoy (KMA / Open-Meteo) y una guía de los 16 distritos de Busan','Planes según zona, fecha, hora, clima, presupuesto e intereses','Lugares en un mapa de Seomyeon con precio, horario y cómo pedir','Rutas de metro desde la estación Seomyeon, tarifas y tarjetas','Preguntar, traducir (también por voz), frases en coreano, servicios básicos','Reseñas, avisos de problemas, app en la pantalla de inicio (PWA), 4 idiomas'],
+  ['今日天气（韩国气象厅 / Open-Meteo）和釜山16个区·郡介绍','按地区、日期、时间、天气、预算和兴趣定制的路线','西面简图上的地点及价格、营业时间、点餐方式','以西面站为起点的地铁导航、票价和交通卡说明','提问、翻译（支持语音）、韩语短句卡、旅行必备信息','地点评价、问题反馈、主屏幕App（PWA）、4种语言']],
  out_h:['일부러 뺀 것','Left out on purpose','Fuera, a propósito','有意暂不包含'],
- out_list:[['자체 결제 시스템 (초기엔 제휴 사업자의 예약 수단 활용)','복잡한 AI 모델 (지금은 규칙 기반 추천으로 수요부터 검증)','앱스토어 앱 (모바일 웹·PWA로 시작)','부산 외 지역'],
-  ['Our own payment system (partners’ booking tools come first)','A complex AI model (rule-based picks first, to test demand)','An app-store app (mobile web and PWA first)','Cities other than Busan'],
-  ['Sistema de pago propio (al principio se usan las herramientas de reserva de los socios)','Un modelo de IA complejo (primero recomendaciones por reglas para validar la demanda)','App en tiendas (primero web móvil y PWA)','Ciudades fuera de Busan'],
-  ['自有支付系统（初期使用合作商家的预约工具）','复杂的AI模型（先用规则推荐验证需求）','应用商店App（先做移动网页和PWA）','釜山以外的城市']],
+ out_list:[['자체 결제 시스템 (초기엔 제휴 사업자의 예약 수단 활용)','자체 AI 모델 개발 (규칙 기반 코스 + Claude 질문하기로 수요부터 검증)','앱스토어 앱 (모바일 웹·PWA로 시작)','부산 외 지역'],
+  ['Our own payment system (partners’ booking tools come first)','Training our own AI model (rule-based plans plus Claude Q&A to test demand first)','An app-store app (mobile web and PWA first)','Cities other than Busan'],
+  ['Sistema de pago propio (al principio se usan las herramientas de reserva de los socios)','Entrenar un modelo de IA propio (primero planes por reglas y preguntas con Claude para validar la demanda)','App en tiendas (primero web móvil y PWA)','Ciudades fuera de Busan'],
+  ['自有支付系统（初期使用合作商家的预约工具）','自研AI模型（先用规则路线和Claude问答验证需求）','应用商店App（先做移动网页和PWA）','釜山以外的城市']],
  money_h:['수익화 순서','How it makes money, in order','Cómo genera ingresos, por etapas','盈利步骤'],
  steps:[[['지역 사업자 콘텐츠 제작 + 노출 상품','직접 촬영한 사진·영상과 외국인용 이용 정보를 묶어 첫 매출을 만듭니다.'],['예약·구매 중개 수수료','맛집 예약, 체험, 투어, 입장권이 앱을 통해 이용되면 일정 비율의 수수료를 받습니다.'],['데이터 기반 B2B·지역 단위 확장','검증된 모델을 서울·제주·경주로 넓히고 관광기관·지자체와 협력합니다.']],
   [['Content production + listing package for local businesses','Our own photos, video and visitor-friendly info, bundled into a product that brings the first revenue.'],['Booking and purchase commission','When restaurant bookings, experiences, tours or tickets are used through the app, we take a percentage.'],['Data-driven B2B and regional expansion','Take the proven model to Seoul, Jeju and Gyeongju, and work with tourism bodies and local governments.']],
@@ -656,10 +695,10 @@ const U = {
  verify_h:['부산에서 검증할 것','What we will test in Busan','Qué validaremos en Busan','在釜山要验证的内容'],
  verify_p:['제휴 사업자 10~20곳과 시작해, 외국인이 실제로 쓰는지와 사업자가 비용을 낼 만큼 손님을 얻는지를 함께 확인합니다.','Starting with 10–20 partner businesses, we check two things together: do visitors actually use it, and do businesses gain enough customers to pay for it.','Empezando con 10–20 negocios socios, comprobamos a la vez si los visitantes realmente la usan y si los negocios ganan suficientes clientes como para pagar.','从10–20家合作商家开始，同时验证两件事：外国游客是否真的会用，商家是否能获得足够客人而愿意付费。'],
  funnel:[['콘텐츠 조회','저장','길찾기·주문 카드','방문·예약','사업자 매출'],['Views','Saves','Directions & order cards','Visits & bookings','Partner revenue'],['Vistas','Guardados','Rutas y tarjetas de pedido','Visitas y reservas','Ingresos del socio'],['内容浏览','收藏','导航与点餐卡','到访与预约','商家收入']],
- foot:['이 데모의 추천은 미리 정한 규칙으로 계산됩니다. 서비스 이름 ‘OOO’, 가게 이름, 가격, 시간표, 사업자 통계는 모두 설명용 예시이며 실제 업체와 관련이 없습니다. 예약 버튼을 눌러도 실제 예약은 이루어지지 않습니다.',
-  'Recommendations in this demo come from fixed rules. The service name “OOO”, the shop names, prices, schedules and partner statistics are all illustrative examples with no link to real businesses. Pressing a booking button does not make a real booking.',
-  'Las recomendaciones de esta demo salen de reglas fijas. El nombre “OOO”, los nombres de los locales, precios, horarios y estadísticas son ejemplos ilustrativos sin relación con negocios reales. Pulsar reservar no crea una reserva real.',
-  '本演示中的推荐由预设规则计算。服务名称“OOO”、店名、价格、时间表和商家数据均为说明用示例，与真实商家无关。点击预约按钮不会产生真实预约。'],
+ foot:['코스 만들기와 오늘의 추천 코스는 미리 정한 규칙으로 계산되고, 질문하기·번역은 미리보기(claude.ai)에서 Claude가 답합니다. 서비스 이름 ‘OOO’, 가게 이름, 가격, 시간표, 사업자 통계는 설명용 예시이며 실제 업체와 관련이 없습니다. 예약 버튼을 눌러도 실제 예약은 이루어지지 않습니다.',
+  'Plans and today’s suggested plan come from fixed rules; Ask and Translate are answered by Claude in the claude.ai preview. The service name “OOO”, shop names, prices, schedules and partner statistics are illustrative examples with no link to real businesses. Pressing a booking button does not make a real booking.',
+  'Los planes y el plan sugerido de hoy salen de reglas fijas; Preguntar y Traducir los responde Claude en la vista previa de claude.ai. El nombre “OOO”, los locales, precios, horarios y estadísticas son ejemplos ilustrativos sin relación con negocios reales. Pulsar reservar no crea una reserva real.',
+  '路线和今日推荐由预设规则计算，提问和翻译在claude.ai预览中由Claude回答。服务名称“OOO”、店名、价格、时间表和商家数据均为说明用示例，与真实商家无关。点击预约按钮不会产生真实预约。'],
  devnote:['앱의 가게, 가격, 통계는 데모용 가상 데이터입니다.','Shops, prices and statistics in the app are made-up demo data.','Los locales, precios y estadísticas de la app son datos de demostración inventados.','应用中的店铺、价格和统计数据均为虚构的演示数据。'],
  sw_traveler:['여행자 앱','Traveler app','App del viajero','游客应用'],
  sw_partner:['제휴 사업자 화면','Partner screen','Pantalla del socio','合作商家页面'],
@@ -1257,10 +1296,21 @@ function clock(off,start){
 }
 
 /* ---------- pitch ---------- */
+const tourOn = k => k==='partner' ? S.view==='partner' : (S.view==='traveler' && S.tab===k);
 const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>';
 function renderPitch(){
-  const scns = ['rain','order','taxi','book','partner'];
+  const scns = ['rain','area','metro','order','taxi','book','partner'];
+  const tour = ['now','explore','transit','tools','trips','partner'];
   document.getElementById('pitchMain').innerHTML = `
+    <section class="intro">
+      <div class="eyebrow">${t('eyebrow')}</div>
+      <h1>${t('h1')}</h1>
+      <p class="lede">${t('lede')}</p>
+    </section>
+    <section><h2>${t('tour_h')}</h2>
+      <p class="note" style="margin:-6px 0 12px;font-size:14px">${t('tour_s')}</p>
+      <div class="tour">${tour.map(k=>`<button data-goto="${k}" aria-pressed="${tourOn(k)}"><span class="tour-h">${k==='partner'?ICON.partner:ICON[k]}<b>${k==='partner'?t('sw_partner'):t('tab_'+k)}</b></span><ul>${t('tour_'+k).map(x=>`<li>${x}</li>`).join('')}</ul></button>`).join('')}</div>
+    </section>
     <section><h2>${t('try_h')}</h2>
       <div class="try">${scns.map(k=>{const [b,s]=t('scn_'+k);return `<button data-scn="${k}" class="${S.scn===k?'on':''}"><b>${b}</b><span>${s}</span></button>`}).join('')}</div>
     </section>
@@ -1294,7 +1344,8 @@ const ICON = {
  explore:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>',
  transit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l1.5-4M15 21l-1.5-4"/><circle cx="9" cy="14" r=".6" fill="currentColor"/><circle cx="15" cy="14" r=".6" fill="currentColor"/></svg>',
  tools:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>',
- trips:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>'
+ trips:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
+ partner:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10h16l-1.5-5h-13z"/><path d="M5 10v10h14V10M10 20v-5h4v5"/></svg>'
 };
 const app = document.getElementById('app');
 const tile = (s,lg) => { const ph = PHOTOS['app:'+s.id];
@@ -1594,6 +1645,7 @@ function scrollToRoute(){
 }
 function render(){
   document.querySelectorAll('#viewSwitch button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.view===S.view)));
+  document.querySelectorAll('#pitchMain [data-goto]').forEach(b=>b.setAttribute('aria-pressed', String(tourOn(b.dataset.goto))));
   const keep = app.querySelector('.screen'); const st = keep?keep.scrollTop:0; const prevTab = app.dataset.tab;
   const shEl = app.querySelector('.sheet'), shSt = shEl?shEl.scrollTop:0, shKey = S.sheet?S.sheet.mode+':'+S.sheet.id:null, prevSh = app.dataset.sh;
   if(S.view==='partner'){ app.innerHTML = partner(); app.dataset.tab='partner'; return; }
@@ -2184,16 +2236,23 @@ const stageEl = document.getElementById('stage');
 function bringIntoView(){ if(window.matchMedia('(max-width: 980px)').matches){ stageEl.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'start'}); } }
 document.getElementById('wrap').addEventListener('click',e=>{
   const lb = e.target.closest('[data-lang]'); if(lb){ setLang(lb.dataset.lang); return; }
+  const g = e.target.closest('[data-goto]');
+  if(g){ S.scn=null; S.sheet=null; if(g.dataset.goto==='partner') S.view='partner'; else { S.view='traveler'; S.tab=g.dataset.goto; }
+    renderPitch(); render(); app.querySelector('.screen') && (app.querySelector('.screen').scrollTop=0); bringIntoView(); return; }
   const b = e.target.closest('[data-scn]'); if(!b) return;
   S.scn = b.dataset.scn; S.view='traveler'; S.sheet=null;
+  let toRoute = false;
+  const buildNow = () => { S.tab='now'; S.planCond=buildCond(); S.ai=null; aiSeq++; toRoute=true; };
   switch(S.scn){
-    case 'rain': S.tab='now'; S.weather='rain'; setPreset('3h'); S.interests=new Set(['food','cafe','experience']); ask(L(SUGGEST[0])[1]); break;
+    case 'rain': S.area='all'; S.weather='rain'; setPreset('3h'); S.budget=null; S.interests=new Set(['food','cafe','experience']); buildNow(); break;
+    case 'area': S.area='haeundae'; S.weather='sun'; setPreset('half'); S.budget=null; S.interests=new Set(); buildNow(); break;
+    case 'metro': S.tab='transit'; S.trOpen='haeundae'; break;
     case 'order': S.tab='now'; S.sheet={mode:'staff',id:'gukbap'}; break;
-    case 'taxi': S.tab='tools'; S.taxiTo='childpark'; S.sheet={mode:'taxi',id:'childpark'}; break;
+    case 'taxi': S.tab='transit'; S.taxiTo='childpark'; S.sheet={mode:'taxi',id:'childpark'}; break;
     case 'book': S.tab='explore'; S.cat='experience'; S.selPin='bracelet'; S.sheet={mode:'book',id:'bracelet',day:'today',slot:'16:00',ppl:2}; break;
     case 'partner': S.view='partner'; break;
   }
-  renderPitch(); render(); bringIntoView();
+  renderPitch(); render(); if(toRoute) scrollToRoute(); bringIntoView();
 });
 
 /* ---------- top bar, Busan map, district pages ---------- */
