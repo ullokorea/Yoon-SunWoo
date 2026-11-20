@@ -1,0 +1,21 @@
+{
+  "name": "cheonggaeguri",
+  "private": true,
+  "version": "0.1.0",
+  "description": "청개구리 — 날씨 기반 오프라인 할인·예약 플랫폼",
+  "workspaces": [
+    "packages/*",
+    "apps/web",
+    "apps/mobile"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w web",
+    "dev:mobile": "npm run web -w mobile",
+    "db:reset": "npm run reset -w @cheong/server",
+    "test": "npm run test -w @cheong/core && npm run test -w @cheong/server",
+    "typecheck": "npm run typecheck -w @cheong/core && npm run typecheck -w @cheong/server && npm run typecheck -w web && npm run typecheck -w mobile"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

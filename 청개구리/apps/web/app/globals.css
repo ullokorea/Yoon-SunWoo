@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* 청개구리 디자인 토큰 (packages/design-tokens 와 동일 값) */
+@theme {
+  --color-brand: #45B96B;
+  --color-brand-dark: #2F9A54;
+  --color-sun: #F6CD4B;
+  --color-sun-dark: #8A6A00;
+  --color-mint: #DDF5EA;
+  --color-forest: #263A32;
+  --color-surface: #F6FAF8;
+  --color-line: #E3ECE7;
+  --color-muted: #5E7068;
+  --color-subtle: #8A9A93;
+  --color-danger: #D64545;
+  --color-danger-bg: #FDECEC;
+  --color-rain: #5B8DEF;
+  --color-typhoon: #6B5BD6;
+  --color-typhoon-bg: #EEEBFB;
+  --color-mock: #E66A00;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --radius-card: 16px;
+}
+
+html, body {
+  background: #ffffff;
+  color: var(--color-forest);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@keyframes frog-drop {
+  0% { transform: translateY(-6px); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+@keyframes frog-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes frog-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.frog-drop { animation: frog-drop 1.4s ease-in infinite; }
+.frog-sway { animation: frog-sway 3s ease-in-out infinite; transform-origin: 100px 50px; transform-box: view-box; }
+.frog-bounce { animation: frog-bounce 1.1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .frog-drop, .frog-sway, .frog-bounce { animation: none; }
+}

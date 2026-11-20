@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "청개구리",
+    "slug": "cheonggaeguri",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "dev.cheonggaeguri.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "주변 비 오는 지역의 할인 매장을 보여주기 위해 위치를 사용해요. 거부해도 지역을 직접 선택할 수 있어요."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#DDF5EA",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "dev.cheonggaeguri.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "주변 비 오는 지역의 할인 매장을 보여주기 위해 위치를 사용해요."
+        }
+      ]
+    ],
+    "scheme": "cheonggaeguri",
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}
